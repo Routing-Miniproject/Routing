@@ -40,6 +40,8 @@ Graph CreateGraph(int NumVertex);
 Graph DeleteGraph(Graph G);
 Graph InsertEdge(Graph G, Vertex u, Vertex v, Weight w);
 Graph DeleteEdge(Graph G, Vertex u, Vertex v);
+Graph AddNode(Graph G);
+Graph RemoveNode(Graph G, Vertex v);
 
 
 #endif //GRAPH_GRAPH_H
