@@ -30,11 +30,13 @@ struct GraphInfo
 
 };
 
+//some of the atributes of NodeInfo are declared as pointers so that changing any node of a 
+//given vertex v, changes all the nodes in the adjacency list, corresponding to vertex v
 struct NodeInfo
 {
     Vertex VertexID;
     int* data;
-    int* weight;
+    int weight;
     int* distance;
     int* HeapIndex;
     Vertex* predecessor;
@@ -50,6 +52,8 @@ Graph InsertEdge(Graph G, Vertex u, Vertex v, int w);
 Graph DeleteEdge(Graph G, Vertex u, Vertex v);
 void Dijkstra(Graph G);
 Graph RelaxEdge(Graph G, MinHeap A, int NumHeapElem, Vertex u, Vertex v);
+Graph AddNode(Graph G);
+Graph RemoveNode(Graph G, Vertex v);
 
 
 #endif //GRAPH_GRAPH_H

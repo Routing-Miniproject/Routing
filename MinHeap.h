@@ -12,7 +12,8 @@
 
 #include "graph.h"
 
-#define MIN(a,b)    a>=b ? a : b
+#define MIN(a,b)    a <= b ? a : b
+#define MAX(a,b)    a >= b ? a : b
 
 typedef Node ElementType;
 typedef ElementType* MinHeap;
@@ -24,7 +25,7 @@ MinHeap DownHeap(MinHeap A, int NumElem, int index);
 MinHeap UpHeap(MinHeap A, int NumElem, int index);
 int FindParent(int child);
 MinHeap DeleteMinHeapElement(MinHeap A, int NumElem, int index);
-int FindMinHeapElement(MinHeap A, int NumElem, ElementType X);// same O(N) code as for a general binary tree which returns the array index of X
+int FindMinHeapElement(MinHeap A, int NumElem, ElementType X);
 MinHeap InsertMinHeapElement(MinHeap A, int NumElem, ElementType X);
 Vertex ExtractMin(MinHeap A, int NumElem);
 

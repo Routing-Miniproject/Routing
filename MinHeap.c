@@ -47,7 +47,7 @@ MinHeap UpHeap(MinHeap A, int NumElem, int index)
 
     while(parent>=0)
     {
-        if (*(A[child]->distance)<*(A[parent]->distance))
+        if (*(A[child]->distance)< *(A[parent]->distance))
         {
             SwapInt(A[parent]->HeapIndex, A[child]->HeapIndex);
             Swap(A+parent, A+child);
