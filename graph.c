@@ -67,7 +67,7 @@ Node DeleteNode(Node N)
 //data is the information in the vertex v and is stored in v
 //worst case time complexity is O(E)
 
-Graph InsertEdge(Graph G, Vertex u, Vertex v, Weight w)
+Graph InsertEdge(Graph G, Vertex u, Vertex v, int w)
 {
     Node N=MakeNode;
     N->VertexID=v;

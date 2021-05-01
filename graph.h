@@ -1,5 +1,3 @@
-
-
 #ifndef GRAPH_GRAPH_H
 #define GRAPH_GRAPH_H
 
@@ -10,11 +8,16 @@
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
+#include <limits.h>
 
-typedef int ElementType;
+#include "MinHeap.h"
+
+
+#define PRESENT 1
+#define ABSENT 0
+
 typedef struct GraphInfo* Graph;
 typedef struct NodeInfo* Node;
-typedef int Weight;
 typedef int Vertex;
 
 //This graph ADT uses adjacency list
@@ -22,6 +25,7 @@ typedef int Vertex;
 struct GraphInfo
 {
     int NumVertex;
+    int NumEdge;
     Node* VertexList;
 
 };
@@ -29,8 +33,12 @@ struct GraphInfo
 struct NodeInfo
 {
     Vertex VertexID;
-    ElementType* data;
-    Weight weight;
+    int* data;
+    int* weight;
+    int* distance;
+    int* HeapIndex;
+    Vertex* predecessor;
+
     Node NextNode;
 };
 
@@ -38,8 +46,10 @@ Node MakeNode();
 Node DeleteNode(Node N);
 Graph CreateGraph(int NumVertex);
 Graph DeleteGraph(Graph G);
-Graph InsertEdge(Graph G, Vertex u, Vertex v, Weight w);
+Graph InsertEdge(Graph G, Vertex u, Vertex v, int w);
 Graph DeleteEdge(Graph G, Vertex u, Vertex v);
+void Dijkstra(Graph G);
+Graph RelaxEdge(Graph G, MinHeap A, int NumHeapElem, Vertex u, Vertex v);
 
 
 #endif //GRAPH_GRAPH_H
