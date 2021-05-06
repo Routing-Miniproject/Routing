@@ -32,6 +32,6 @@ The next line contains an integer |E| denoting the number of roads(edges). The n
 Each of the next |E| lines contains a floating point denoting the length of a road in metres
 Each of the next |E| lines contains  a floating number denoting the traffic density of the corresponding road.
 Each of the next |E| lines contains an integer denoting the number of turns present in the corresponding road.
-Each of the next |E| lines contains a floating point denoting the average number of marriages in that given road.
+Each of the next |E| lines contains a floating point denoting the average number of marriages in that given road per day.
 Each of the next |E| lines contains a boolean value, such that 1 denotes the corresponding road is inside the city and 0 otherwise.
 Each of the next |E| lines contains a floating point denoting the average speed with which any vehicle travels on the corresponding road in m/s.
