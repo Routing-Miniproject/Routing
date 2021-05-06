@@ -1,15 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdio.h>
-
-typedef struct date_time date_time;
-struct date_time
-{
-    int day;
-    int month;
-    int hours;
-    int minutes;
-};
+#include <string.h>
+#include "date_time.h"
 
 int main()
 {
