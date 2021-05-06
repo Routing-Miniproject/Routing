@@ -29,8 +29,9 @@
 The first line contains an integer |V| denoting the number of intersection(nodes). The ID of each intersection is between 0 and |V| - 1.
 The next |V| lines contain an integer denoting the time delay caused by a traffic light on each node(the value is 0 if there is no traffic light).
 The next line contains an integer |E| denoting the number of roads(edges). The next |E| lines contains 2 space seperated integers denoting the start and end nodes of the road.
-Each of the next |E| lines contains the traffic contains a floating number denoting the traffic density of the corresponding road.
+Each of the next |E| lines contains a floating point denoting the length of a road in metres
+Each of the next |E| lines contains  a floating number denoting the traffic density of the corresponding road.
 Each of the next |E| lines contains an integer denoting the number of turns present in the corresponding road.
 Each of the next |E| lines contains a floating point denoting the average number of marriages in that given road.
 Each of the next |E| lines contains a boolean value, such that 1 denotes the corresponding road is inside the city and 0 otherwise.
-Each of the next |E| lines contains an integer denoting the average speed with which any vehicle travels on the corresponding road.
+Each of the next |E| lines contains a floating point denoting the average speed with which any vehicle travels on the corresponding road in m/s.
