@@ -12,12 +12,11 @@
 
 #include "MinHeap.h"
 
-
 #define PRESENT 1
 #define ABSENT 0
 
-typedef struct GraphInfo* Graph;
-typedef struct NodeInfo* Node;
+typedef struct GraphInfo *Graph;
+typedef struct NodeInfo *Node;
 typedef int Vertex;
 
 //This graph ADT uses adjacency list
@@ -26,20 +25,19 @@ struct GraphInfo
 {
     int NumVertex;
     int NumEdge;
-    Node* VertexList;
-
+    Node *VertexList;
 };
 
-//some of the atributes of NodeInfo are declared as pointers so that changing any node of a 
+//some of the atributes of NodeInfo are declared as pointers so that changing any node of a
 //given vertex v, changes all the nodes in the adjacency list, corresponding to vertex v
 struct NodeInfo
 {
     Vertex VertexID;
-    int* data;
+    int *data;
     int weight;
-    int* distance;
-    int* HeapIndex;
-    Vertex* predecessor;
+    int *distance;
+    int *HeapIndex;
+    Vertex *predecessor;
 
     Node NextNode;
 };
@@ -55,5 +53,7 @@ Graph RelaxEdge(Graph G, MinHeap A, int NumHeapElem, Vertex u, Vertex v);
 Graph AddNode(Graph G);
 Graph RemoveNode(Graph G, Vertex v);
 
+//function to generate map 
+Graph getmap(); 
 
 #endif //GRAPH_GRAPH_H
