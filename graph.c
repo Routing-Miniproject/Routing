@@ -300,42 +300,41 @@ Graph getmap()
     FILE *fp = fopen("graphinput.txt", "r");
     fscanf(fp, "%d", &V); //number of vertices
 
-    int time_delay[V];
+    Graph G = CreateGraph(V);
+
+    int time_delay; //in mins
     for (int i = 0; i < V; i++)
     {
-        fscanf(fp, "%d", &time_delay[i]);
+        fscanf(fp, "%d", &time_delay);
+        G->VertexList[i]->SignalDelay = time_delay;
+    }
+
+    int NumHalls;
+    for (int i = 0; i < V; ++i)
+    {
+        fscanf(fp, "%d", &NumHalls);
+        G->VertexList[i]->NumHalls = NumHalls;
     }
 
     fscanf(fp, "%d", &E); //number of edges
+    G->NumEdge = E;
 
-    int start[E], end[E]; //start and end points of an edge
-    for (int j = 0; j < E; j++)
+    int Start[E], End[E];
+    for (int i = 0; i < E; ++i)
     {
-        fscanf(fp, "%d %d", start[j], end[j]);
+        fscanf(fp, "%d %d", &Start[i], &End[i]);
     }
 
-    float length[E]; //length of edge
-    for (int k = 0; k < E; k++)
-    {
-        fscanf(fp, "%f", &length[k]);
-    }
+    float speed, traf_density; //traffic density given in number of cars per km
+    float distance;            //speed in kmph
+    float weight;              //temporary weights created which doesn't account the marriage processions
 
-    int traf_density[E], num_marriages[E], speed[E];
     for (int i = 0; i < E; i++)
     {
-        fscanf(fp, "%d", &traf_density[i]);
-    }
-    for (int j = 0; j < E; j++)
-    {
-        fscanf(fp, "%d", &num_marriages[j]);
-    }
-    for (int k = 0; k < E; k++)
-    {
-        fscanf(fp, "%d", &speed[k]);
+        fscanf(fp, "%f %d %d", &distance, &traf_density, &speed);
+        weight = GetWeight(G, Start[i], End[i], distance, speed, traf_density);  
+        InsertEdge(G, Start[i], End[i], weight);
     }
 
-    //function to calculate the weight of
-    //each node based on above inputs
-    getweight();
-
+    return G;
 }
