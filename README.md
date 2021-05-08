@@ -8,12 +8,12 @@
 ## Calculating weightages
 ---
 ### Dataset Provided:
-     1. Intersections
-     2. Roads
-     3. Traffic Density/Flow
-     4. Traffic light data
-     5. Number of roads from an intersection
-     6. Marraige Season and usual time of occurence of processions
+     1. Intersections (nodes)
+     2. Roads (edges)
+     3. Length of the road
+     4. Traffic Density/Flow
+     5. Time delay due to traffic signals
+     6. Marraige Season - depicts the presence of function halls 
      7. Speed limits
 
 ### User Input Data:
@@ -27,10 +27,7 @@
 
 - The first line contains an integer |V| denoting the number of intersection(nodes). The ID of each intersection is between 0 and |V| - 1.
 - The next |V| lines contain an integer denoting the time delay caused by a traffic light on each node(the value is 0 if there is no traffic light).
-- The next line contains an integer |E| denoting the number of roads(edges). The next |E| lines contains 2 space seperated integers denoting the start and end nodes of the    road.
-- Each of the next |E| lines contains a floating point denoting the length of a road in metres
-- Each of the next |E| lines contains  a floating number denoting the traffic density of the corresponding road.
-- Each of the next |E| lines contains an integer denoting the number of turns present in the corresponding road.
-- Each of the next |E| lines contains a floating point denoting the average number of marriages in that given road per day.
-- Each of the next |E| lines contains a boolean value, such that 1 denotes the corresponding road is inside the city and 0 otherwise.
-- Each of the next |E| lines contains a floating point denoting the average speed with which any vehicle travels on the corresponding road in m/s.
+- The next |V| lines contain a boolean value for each node denoting the presence of function halls (0 for none and 1 if any present).
+- The next line contains an integer |E| denoting the number of roads(edges). 
+- The next |E| lines contains 2 space seperated integers denoting the start and end vertices of the road.
+- The next |E| lines contains 3 space seperated floating point values denoting the length (in meters), the traffic density (number of cars per kilometers) and the     speed limit (in kmph) of the given road.
