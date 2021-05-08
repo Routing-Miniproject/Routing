@@ -1,39 +1,110 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "date_time.h"
 #include "graph.h"
-#include "SPG.h"
+#include "Heaps.h"
+#include "dijkstra.h"
+#include "date_time.h"
 
 int main()
 {
-    Graph G = getmap(); //generate_map
-    int V = G->NumVertex;
+    Graph G = getmap();
 
-    /* Considering the vertices names to be characters from a to z */
-    char source, destination;
-    date_time D;
+    printf("Operation Codes:\n");
+    printf("0. Exit\n");
+    printf("1. Find Shortest Path\n");
+    printf("2. Add Edge\n");
+    printf("3. Delete Edge\n");
+    printf("4. Print Graph\n");
+    printf("5. Get Weight\n");
 
-    printf("Enter the following information:\n"); // Taking input of source, destination, date and time from the user
-    printf("Starting Point: ");
-    scanf("%c", &source);
-    printf("Destination: ");
-    scanf("%c", &destination);
-    printf("Time: "); // hours:minutes (24-hr format)
-    scanf("%d:%d", &D.hours, &D.minutes);
-    printf("Date: "); // dd/mm format
-    scanf("%d/%d", &D.day, &D.month);
+    printf("\n");
 
-    weightage_calculator(D); // uses the map data and also checks the time and date to calculate and store optimised weightages into the edge data
+    int Operation;
+    scanf("%d", &Operation);
 
-    int source_id = source - 'a';           // Converting the vertex names to int since
-    int destination_id = destination - 'a'; // algorithm handles vertices in form on int
+    while (Operation != 0)
+    {
+        if (Operation == 1)
+        {
+            Vertex S, E;
+            int H, M;
+            printf("Enter Starting Vertex: ");
+            scanf("%d", &S);
+            printf("Enter Destination Vertex: ");
+            scanf("%d", &E);
+            printf("Enter time of travel (HH:MM): ")
+            scanf("%d:%d", &H, &M);
 
-    SPG **Result = dijkstra(G, source); // Passing graph and source node as parameters and returns a structure (SPG)
-                                        // which consists of distance from source, parent data for each vertex
+            int time  = (H*60)+M;
+            dijkstra(G, S, E, time);
+        }
+        else if (Operation == 2)
+        {
+            int S, E;
+            float distance, traf_density;
+            int speed;
 
-    display_SPG(Result, destination_id, V); // Function which prints the shortest path graph, in basic form (i.e. A-->B-->E-->T)
-                                            // and also the total time taken and total distance to be travelled to reach the destination
+            printf("Enter Starting Vertex: ");
+            scanf("%d", &S);
+            printf("Enter Destination Vertex: ");
+            scanf("%d", &E);
+            printf("Enter length of the road (Km): ");
+            scanf("%f", &distance);
+            printf("Enter speed limit of the road (Km/hr): ");
+            scanf("%d", &speed);
+            printf("Enter traffic density of the road: ");
+            scanf("%f", &traf_density);
+
+            InsertEdge(G, S, E, distance, speed, traf_density);
+            printf("Done!\n");
+        }
+        else if (Operation == 3)
+        {
+            Vertex S, E;
+            printf("Enter Starting Vertex: ");
+            scanf("%d", &S);
+            printf("Enter Destination Vertex: ");
+            scanf("%d", &E);
+
+            DeleteEdge(G, S, E);
+        }
+        else if (Operation == 4)
+        {
+            PrintGraph(G);
+        }
+        else if (Operation == 5)
+        {
+            Vertex S, E;
+            printf("Enter Starting Vertex: ");
+            scanf("%d", &S);
+            printf("Enter Destination Vertex: ");
+            scanf("%d", &E);
+            printf("Enter time of travel (HH:MM): ")
+            scanf("%d:%d", &H, &M);
+
+            int time  = (H*60)+M;
+
+            Node temp = G->VertexList[S]->NextNode;
+            while (temp != NULL)
+            {
+                if (temp->VertexID == E)
+                    break;
+                
+                temp = temp->NextNode;
+            }
+
+            if (temp != NULL)
+            {
+                float weight = GetWeight(G, G->VertexList[S], temp, time)
+                printf("%.2f\n", weight);
+            }
+            else if (temp == NULL)
+            {
+                printf("No such road exists\n");
+            }
+        }
+
+        printf("\n");
+        scanf("%d", &Operation);
+    }
 
     return 0;
 }
