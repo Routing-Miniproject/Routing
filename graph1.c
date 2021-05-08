@@ -2,7 +2,7 @@
 #include <stdlib.h>
  
  
-// Data structure to store a graph object
+// Data structure to store a graph objects
 struct Graph
 {
     // An array of pointers to Node to represent an adjacency list
