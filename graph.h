@@ -30,7 +30,7 @@ struct GraphInfo
 
 //some of the atributes of NodeInfo are declared as pointers so that changing any node of a
 //given vertex v, changes all the nodes in the adjacency list, corresponding to vertex v
-struct NodeInfo
+/*struct NodeInfo
 {
     Vertex VertexID;
     int *data;
@@ -39,6 +39,27 @@ struct NodeInfo
     int *HeapIndex;
     Vertex *predecessor;
 
+    Node NextNode;
+};
+*/
+struct NodeInfo
+{
+    //For a Vertex
+    Vertex VertexID;
+    int NumHalls;
+    float IncTraff;
+    int NumEdges;
+    int SignalDelay;
+
+    //For an Edge
+    float TraffDen;
+    float distance;
+    int SpeedLim;
+
+    int *HeapIndex;
+    Vertex *predecessor;
+
+    // Pointer to Next node
     Node NextNode;
 };
 
@@ -53,6 +74,7 @@ Graph RelaxEdge(Graph G, MinHeap A, int NumHeapElem, Vertex u, Vertex v);
 Graph AddNode(Graph G);
 Graph RemoveNode(Graph G, Vertex v);
 
+float GetWeight(Graph G, Vertex u, Vertex v, float distance, float speed, float traf_density); 
 //function to generate map 
 Graph getmap(); 
 
