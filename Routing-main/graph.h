@@ -52,8 +52,7 @@ void InsertEdge(Graph G, Vertex Start, Vertex End, float distance, int speed, fl
 void DeleteEdge(Graph G, Vertex u, Vertex v);
 void PrintGraph(Graph G);
 
-
-//function to generate map 
-Graph getmap(); 
+//function to generate map
+Graph getmap();
 
 #endif

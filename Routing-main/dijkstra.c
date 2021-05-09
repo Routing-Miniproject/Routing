@@ -1,7 +1,5 @@
 #include "dijkstra.h"
 
-
-
 int GetWeight(Graph G, Node Current, Node Destination, int time)
 {
     float weight;
@@ -10,9 +8,9 @@ int GetWeight(Graph G, Node Current, Node Destination, int time)
     //printf("%g %d %g\n", Destination->distance, Destination->SpeedLim, Destination->traf_density);
     //printf("%d\n", Current->NumHalls);
     //printf("%g\n\n", G->VertexList[Destination->VertexID]->IncTraff);
-    
+
     float LOAD_FCT;
-    if (time <= 22*60 && time >= 18*60)
+    if (time <= 22 * 60 && time >= 18 * 60)
     {
         LOAD_FCT = LOAD_FACTOR_IN;
     }
@@ -49,9 +47,11 @@ void dijkstra(Graph G, Vertex S, Vertex E, int start_time)
     MinHeap PriorityQueue = BuildHeap(V);
 
     int time[V];
+    float distance[V];
     for (int i = 0; i < V; ++i)
     {
         time[i] = INT_MAX;
+        distance[i] = INT_MAX;
     }
 
     for (int i = 0; i < V; ++i)
@@ -92,8 +92,9 @@ void dijkstra(Graph G, Vertex S, Vertex E, int start_time)
             {
 
                 Path[Destination] = CurrentID;
+                distance[Destination] = temp->distance;
                 time[Destination] = time[CurrentID] + temp_weight;
-                
+
                 RelaxEdge(PriorityQueue, Destination, time[Destination]);
             }
 
@@ -104,15 +105,15 @@ void dijkstra(Graph G, Vertex S, Vertex E, int start_time)
             break;
     }
 
-    PrintPath(S, E, time, Path, start_time);
+    PrintPath(S, E, time, Path, start_time, distance);
 }
 
-void PrintPath(Vertex S, Vertex E, int* time, int* Path, int start_time)
+void PrintPath(Vertex S, Vertex E, int *time, int *Path, int start_time, float *distance)
 {
     printf("Estimated Travel Duration: %d mins\n", time[E]);
-    
-    int H = (start_time + time[E])/60;
-    int M = (start_time + time[E])%60;
+
+    int H = (start_time + time[E]) / 60;
+    int M = (start_time + time[E]) % 60;
 
     printf("Estimated Arrival Time: %2d:%2d\n", H, M);
 
@@ -135,13 +136,15 @@ void PrintPath(Vertex S, Vertex E, int* time, int* Path, int start_time)
     printf("%d ", S);
     int CurrentTime = 0;
     PathNode temp = NewPath->NextNode;
+    float total_distance = 0;
 
     while (temp != NULL)
     {
-        printf("-- %d mins --> %d ",time[temp->VertexID]-CurrentTime, temp->VertexID);
+        total_distance += distance[temp->VertexID];
+        printf("-- %d mins --> %d ", time[temp->VertexID] - CurrentTime, temp->VertexID);
         CurrentTime = time[temp->VertexID];
         temp = temp->NextNode;
     }
 
-    printf("\n");
+    printf("\nTotal Distance to be travelled: %g Km\n", total_distance);
 }
