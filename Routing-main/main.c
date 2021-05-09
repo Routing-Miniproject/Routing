@@ -2,8 +2,11 @@
 #include "Heaps.h"
 #include "dijkstra.h"
 
+
 int main()
 {
+    setlocale(LC_ALL, "en_US.utf8");
+
     Graph G = getmap();
 
     printf("Operation Codes:\n");
@@ -36,7 +39,21 @@ int main()
             int time = (H * 60) + M;
 
             printf("\n");
-            dijkstra(G, S, E, time);
+            if (S >= G->NumVertex || S < 0)
+            {
+                printf("Vertex %d does not exists!!\n", S);
+            }
+
+            if (E >= G->NumVertex || E < 0)
+            {
+                printf("Vertex %d does not exists!!\n", E);
+            }
+
+            if (S < G->NumVertex && S >= 0 && E < G->NumVertex && E >= 0)
+            {
+                dijkstra(G, S, E, time);
+            }
+            
         }
         else if (Operation == 2)
         {
@@ -55,8 +72,22 @@ int main()
             printf("Enter traffic density of the road: ");
             scanf("%f", &traf_density);
 
-            InsertEdge(G, S, E, distance, speed, traf_density);
-            printf("Done!\n");
+            printf("\n");
+            if (S >= G->NumVertex || S < 0)
+            {
+                printf("Vertex %d does not exists!!\n", S);
+            }
+
+            if (E >= G->NumVertex || E < 0)
+            {
+                printf("Vertex %d does not exists!!\n", E);
+            }
+
+            if (S < G->NumVertex && S >= 0 && E < G->NumVertex && E >= 0)
+            {
+                InsertEdge(G, S, E, distance, speed, traf_density);
+                printf("Done!!\n");
+            }
         }
         else if (Operation == 3)
         {
@@ -66,7 +97,21 @@ int main()
             printf("Enter Destination Vertex: ");
             scanf("%d", &E);
 
-            DeleteEdge(G, S, E);
+            printf("\n");
+            if (S >= G->NumVertex || S < 0)
+            {
+                printf("Vertex %d does not exists!!\n", S);
+            }
+
+            if (E >= G->NumVertex || E < 0)
+            {
+                printf("Vertex %d does not exists!!\n", E);
+            }
+
+            if (S < G->NumVertex && S >= 0 && E < G->NumVertex && E >= 0)
+            {
+                DeleteEdge(G, S, E);
+            }
         }
         else if (Operation == 4)
         {
@@ -87,23 +132,36 @@ int main()
 
             int time = (H * 60) + M;
 
-            Node temp = G->VertexList[S]->NextNode;
-            while (temp != NULL)
+            if(S >= G->NumVertex || S < 0)
             {
-                if (temp->VertexID == E)
-                    break;
-
-                temp = temp->NextNode;
+                printf("Vertex %d does not exists!!\n", S);
             }
 
-            if (temp != NULL)
+            if (E >= G->NumVertex || E < 0)
             {
-                float weight = GetWeight(G, G->VertexList[S], temp, time);
-                printf("%g mins\n", weight);
+                printf("Vertex %d does not exists!!\n", E);
             }
-            else if (temp == NULL)
+
+            if (S < G->NumVertex && S >= 0 && E < G->NumVertex && E >= 0)
             {
-                printf("No such road exists\n");
+                Node temp = G->VertexList[S]->NextNode;
+                while (temp != NULL)
+                {
+                    if (temp->VertexID == E)
+                        break;
+
+                    temp = temp->NextNode;
+                }
+
+                if (temp != NULL)
+                {
+                    float weight = GetWeight(G, G->VertexList[S], temp, time);
+                    printf("%g mins\n", weight);
+                }
+                else if (temp == NULL)
+                {
+                    printf("No such road exists!!\n");
+                }
             }
         }
 
@@ -111,6 +169,9 @@ int main()
         printf("Operation Code: ");
         scanf("%d", &Operation);
     }
+
+    printf("\n");
+    printf("Thank you for using our program %lc\n",  0x1F603);
 
     return 0;
 }
