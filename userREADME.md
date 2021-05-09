@@ -4,7 +4,7 @@
 ```
 # How to run the testcases 
 
-After compiling, a set of operations list appears which prompts you to enter an operation code of to your choice. 
+After compiling, a set of operations list appears which prompts you to enter an operation code of your choice. 
 
 On choosing an operation code:
 
