@@ -94,13 +94,8 @@ Graph getmap()
 {
     int V, E;
 
-<<<<<<< HEAD
     FILE *fp = fopen("graphinput.txt", "r");
     fscanf(fp, "%d", &V); 
-=======
-    FILE *fp = fopen("t.txt", "r");
-    fscanf(fp, "%d", &V);
->>>>>>> 84b245172cffd3a044654da7431f358b2993bc08
 
     Graph G = CreateGraph(V);
 
