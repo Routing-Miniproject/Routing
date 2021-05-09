@@ -28,7 +28,7 @@
 - The first line contains an integer |V| denoting the number of intersection(nodes). The ID of each intersection is between 0 and |V| - 1.
 - The next line contains |V| space seperated integers denoting the number of function halls at each node (0 in case there are none).
 - The next line contains an integer |E| denoting the number of roads(edges). 
-- The next 2|E| lines(2 lines per edge) contains the following data for each edge:
+- The next |E| lines contains the following data for each edge:
    - The first line of each set contains 2 space seperated integers denoting the start and end vertices of the road.
    - The next line contains 3 space seperated values denoting the length (in kilometers), the speed limit (in kmph) and the traffic density (number of cars per        kilometer) of the given road.
 
