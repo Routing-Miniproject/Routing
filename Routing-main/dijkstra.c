@@ -4,11 +4,6 @@ int GetWeight(Graph G, Node Current, Node Destination, int time)
 {
     float weight;
 
-    //printf("%d ----> %d\n", Current->VertexID, Destination->VertexID);
-    //printf("%g %d %g\n", Destination->distance, Destination->SpeedLim, Destination->traf_density);
-    //printf("%d\n", Current->NumHalls);
-    //printf("%g\n\n", G->VertexList[Destination->VertexID]->IncTraff);
-
     float LOAD_FCT;
     if (time <= 22 * 60 && time >= 18 * 60)
     {
@@ -31,8 +26,18 @@ int GetWeight(Graph G, Node Current, Node Destination, int time)
         TIME_CST = TIME_CONSTANT_BE;
         PROP_CST = PROPORTION_BE;
     }
+    
+    float VEHICLE_CST;
+    if (Destination->traf_density > 70)
+    {
+        VEHICLE_CST = VEHICLE_CONS_OUT;
+    }
+    else
+    {
+        VEHICLE_CST = VEHICLE_CONS_IN;
+    }
 
-    float Traf_New = (Destination->traf_density) + (VEHICLE_CONS * LOAD_FCT) * (((float)Current->NumHalls) / ((float)Current->NumEdge) + 0.01);
+    float Traf_New = (Destination->traf_density) + (VEHICLE_CST * LOAD_FCT) * (((float)Current->NumHalls) / ((float)Current->NumEdge) + 0.01);
     weight = ((Destination->distance) * (Traf_New)) / ((Destination->SpeedLim) * (Destination->traf_density));
     weight = weight * 60;
     weight += (TIME_CST) * ((G->VertexList[Destination->VertexID]->IncTraff) / PROP_CST);
