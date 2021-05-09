@@ -17,11 +17,26 @@
      6. Speed limits
 
 ### User Input Data:
+    To find quickest path
      1. Start(vertex ID -integer)
      2. Destination(vertex ID -integer)
      3. Time(24-hour format -HH:MM)
      
-### Formulas Used:
+    To find weight of an edge
+     1. Start(vertex ID -integer)
+     2. Destination(vertex ID -integer)
+     3. Time(24-hour format -HH:MM)
+     
+    To add a new edge
+     1. Start(vertex ID -integer)
+     2. Destination(vertex ID -integer)
+     3. Length of the road (km -float)
+     4. Speed limit (kmph -integer)
+     5. Traffic Density/Flow (number of cars per kilometer -float)
+     
+    To delete an edge
+     1. Start(vertex ID -integer)
+     2. Destination(vertex ID -integer)
 
 ### Graphinput Text File format:
 
@@ -30,5 +45,5 @@
 - The next line contains an integer |E| denoting the number of roads(edges). 
 - The next |E| lines contains the following data for each edge:
    - The first line of each set contains 2 space seperated integers denoting the start and end vertices of the road.
-   - The next line contains 3 space seperated values denoting the length (in kilometers), the speed limit (in kmph) and the traffic density (number of cars per        kilometer) of the given road.
+   - The next line contains 3 space seperated values denoting the length (in kilometers), the speed limit (in kmph) and the traffic density (number of cars per kilometer) of the given road.
 
