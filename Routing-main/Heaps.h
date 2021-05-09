@@ -3,26 +3,26 @@
 
 #include "graph.h"
 
-typedef struct MinHeap *MinHeap;
-typedef struct HeapNode *HeapNode;
+typedef struct MinHeap* MinHeap;
+typedef struct HeapNode* HeapNode;
 
-struct MinHeap
-{
-    int size;
-    int capacity;
-    int *IDK;
-    HeapNode *Array;
+// Structure to store the MinHeap data
+struct MinHeap {
+    int size;               // Current size of MinHeap
+    int capacity;           // Maximum capacity of MinHeap
+    int* IDK;               // Array to store the position of each Key
+    HeapNode* Array;        // Array to store the Key-Value pair
 };
 
-struct HeapNode
-{
+// Structure to store the Key-Value pair
+struct HeapNode {
     Vertex VertexID;
     int Weight;
 };
 
 HeapNode newMinHeapNode(Vertex To, int weight);
 int IsEmpty(MinHeap PriorityQueue);
-void SwapNode(HeapNode *a, HeapNode *b);
+void SwapNode(HeapNode* a, HeapNode* b);
 MinHeap BuildHeap(int V);
 void DownHeap(MinHeap PriorityQueue, int in);
 HeapNode ExtractMin(MinHeap PriorityQueue);
