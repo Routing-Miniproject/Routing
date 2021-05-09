@@ -4,9 +4,10 @@
 #include "graph.h"
 #include "Heaps.h"
 
-typedef struct PathNode* PathNode;
+typedef struct PathNode *PathNode;
 
-struct PathNode {
+struct PathNode
+{
     Vertex VertexID;
     PathNode NextNode;
 };
@@ -21,6 +22,6 @@ struct PathNode {
 
 int GetWeight(Graph G, Node Current, Node Destination, int time);
 void dijkstra(Graph G, Vertex S, Vertex E, int time);
-void PrintPath(Vertex S, Vertex E, int* time, int* Path, int start_time);
+void PrintPath(Vertex S, Vertex E, int *time, int *Path, int start_time, float *distance);
 
 #endif

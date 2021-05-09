@@ -33,7 +33,7 @@ int main()
             printf("Enter time of travel (HH:MM): ");
             scanf("%d:%d", &H, &M);
 
-            int time  = (H*60)+M;
+            int time = (H * 60) + M;
 
             printf("\n");
             dijkstra(G, S, E, time);
@@ -85,14 +85,14 @@ int main()
             printf("Enter time of travel (HH:MM): ");
             scanf("%d:%d", &H, &M);
 
-            int time  = (H*60)+M;
+            int time = (H * 60) + M;
 
             Node temp = G->VertexList[S]->NextNode;
             while (temp != NULL)
             {
                 if (temp->VertexID == E)
                     break;
-                
+
                 temp = temp->NextNode;
             }
 

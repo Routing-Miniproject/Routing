@@ -50,8 +50,6 @@ Node MakeNode()
     return N;
 }
 
-
-
 void InsertEdge(Graph G, Vertex Start, Vertex End, float distance, int speed, float traf_density)
 {
     G->NumEdge += 1;
@@ -72,7 +70,6 @@ void InsertEdge(Graph G, Vertex Start, Vertex End, float distance, int speed, fl
 
     G->VertexList[End]->IncTraff += traf_density;
 }
-
 
 void DeleteEdge(Graph G, Vertex u, Vertex v)
 {
@@ -98,10 +95,9 @@ Graph getmap()
     int V, E;
 
     FILE *fp = fopen("t.txt", "r");
-    fscanf(fp, "%d", &V); 
+    fscanf(fp, "%d", &V);
 
     Graph G = CreateGraph(V);
-    
 
     int NumHalls;
     for (int i = 0; i < V; ++i)
@@ -109,9 +105,8 @@ Graph getmap()
         fscanf(fp, "%d", &NumHalls);
         G->VertexList[i]->NumHalls = NumHalls;
     }
-    
-    
-    fscanf(fp, "%d", &E); 
+
+    fscanf(fp, "%d", &E);
 
     int Start, End;
     float distance, traf_density;
@@ -119,13 +114,12 @@ Graph getmap()
 
     for (int i = 0; i < E; ++i)
     {
-        
+
         fscanf(fp, "%d %d", &Start, &End);
         fscanf(fp, "%f %d %f", &distance, &speed, &traf_density);
 
         InsertEdge(G, Start, End, distance, speed, traf_density);
     }
-    
 
     return G;
 }
