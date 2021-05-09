@@ -16,8 +16,8 @@ struct MinHeap {
 
 // Structure to store the Key-Value pair
 struct HeapNode {
-    Vertex VertexID;
-    int Weight;
+    Vertex VertexID;        // Stores the VertexID of the vertex
+    int Weight;             // Stores the weight of to reach the vertex from source vertex 
 };
 
 HeapNode newMinHeapNode(Vertex To, int weight);
