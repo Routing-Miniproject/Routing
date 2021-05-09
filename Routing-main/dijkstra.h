@@ -14,11 +14,11 @@ struct PathNode
 
 #define TIME_CONSTANT_AB 5
 #define TIME_CONSTANT_BE 2
-#define PROPORTION_AB 30
-#define PROPORTION_BE 10
+#define PROPORTION_AB 80
+#define PROPORTION_BE 50
 #define VEHICLE_CONS 3.7
-#define LOAD_FACTOR_IN 2.1
-#define LOAD_FACTOR_OUT 0.2
+#define LOAD_FACTOR_IN 49.1
+#define LOAD_FACTOR_OUT 10.2
 
 int GetWeight(Graph G, Node Current, Node Destination, int time);
 void dijkstra(Graph G, Vertex S, Vertex E, int time);
