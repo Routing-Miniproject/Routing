@@ -94,12 +94,12 @@ Node DeleteNode(Node N)
     return N;
 }
 
-//InsertEdge replaces a vertex if it already exists
-//w is weight of edge (u,v) and is stored in vertex v in adjacency list
+//InsertEdge adds an edge from u to v to the graph
+//w is weight of edge (u,v) and is stored in vertex v (destination node) in adjacency list
 //data is the information in the vertex v and is stored in v
-//worst case time complexity is O(E)
+//worst case time complexity is O(1)
 
-Graph InsertEdge(Graph G, Vertex u, Vertex v, int w)
+void InsertEdge(Graph G, Vertex u, Vertex v, int w)
 {
     Node N = MakeNode;
     N->VertexID = v;
@@ -108,34 +108,25 @@ Graph InsertEdge(Graph G, Vertex u, Vertex v, int w)
     N->HeapIndex = G->VertexList[v]->HeapIndex;
     N->distance = G->VertexList[v]->distance;
     N->weight = w;
+    N->NextNode = NULL;
 
     //search if vertex v already exists
 
     Node temp = G->VertexList[u];
-
-    while (temp->NextNode != NULL)
+    
+    if(temp->NextNode != NULL)
     {
-        if (temp->NextNode->VertexID == v)
-        {
-            N->NextNode = temp->NextNode->NextNode;
-            DeleteNode(temp->NextNode);
-            temp->NextNode = N;
-
-            return G;
-        }
-
-        temp = temp->NextNode;
+        N->NextNode=temp->NextNode;
+        temp->NextNode=N;
     }
-
-    //if v does not exist already
-    temp->NextNode = N;
-    N->NextNode = NULL;
-
-    return G;
+    else
+    {
+        temp->NextNode=N;
+    }
 }
 
 //worst case time complexity of DeleteEdge is O(E)
-Graph DeleteEdge(Graph G, Vertex u, Vertex v)
+void DeleteEdge(Graph G, Vertex u, Vertex v)
 {
     Node temp = G->VertexList[u];
 
@@ -152,8 +143,6 @@ Graph DeleteEdge(Graph G, Vertex u, Vertex v)
 
         temp = temp->NextNode;
     }
-
-    return G;
 }
 
 Graph AddNode(Graph G)
