@@ -1,6 +1,11 @@
 # Instructions for compilation 
+## For Linux
 ```
-
+  1. Download and extract the zip file.
+  2. Open a terminal in the folder Routing-main.
+  3. Run the command "gcc main.c dijkstra.c graph.c Heaps.c -lm".
+  4. Run the command "./a.out".
+  5. Using the operations listed below, continue with the program. 
 ```
 # How to run the testcases 
 
