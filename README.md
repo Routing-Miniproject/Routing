@@ -19,7 +19,7 @@
 ### User Input Data:
      1. Start(vertex ID -integer)
      2. Destination(vertex ID -integer)
-     3. Time(only hour -integer)
+     3. Time(24-hour format -HH:MM)
      
 ### Formulas Used:
 
