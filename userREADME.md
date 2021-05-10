@@ -76,3 +76,20 @@ This operation prints the graph using adjacency list implementation.
   For example 1->{2,3,5}, means 1 is the starting vertex and 2,3,5 are three different end vertices containing an edge starting from 1. 
 ```
 ## 5 - Get weight 
+```
+This operation is used to find the shortest path from the start to the end vertex. 
+
+INPUT:
+The following information must be entered:
+
+a)The starting vertex:
+  - This is the starting point of any road in the graph.
+b)The destination vertex:
+  - This is the final point of that particular road.
+c)Time of travel:
+  - Enter the time at which you begin your journey from the starting point in 24 hour format (ie hours:minutes).
+
+OUTPUT:
+Weight of the edge(road), in other words, the time it takes to travel through the road is printed.
+If the inputs are invalid, an error message is printed.
+```
