@@ -81,7 +81,7 @@ This operation prints the graph using adjacency list implementation.
 ```
 ## 5 - Get weight 
 ```
-This operation is used to find the shortest path from the start to the end vertex. 
+This operation is used to find the weight of an edge, in other words, the time(mins) it takes to travel through the road.
 
 INPUT:
 The following information must be entered:
