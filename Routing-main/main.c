@@ -156,8 +156,9 @@ int main()
 
                 if (temp != NULL)                                           // If edge is found temp != NULL
                 {
-                    float weight = GetWeight(G, G->VertexList[S], temp, time);      
-                    printf("%g mins\n", weight);                            // Calling the GetWeight function to calculate the weight of that edge
+                    float weight = GetWeight(G, G->VertexList[S], temp, time);
+                    printf("\n");
+                    printf("Weight: %g mins\n", weight);                            // Calling the GetWeight function to calculate the weight of that edge
                 }
                 else if (temp == NULL)                                      // If edge doesn't exist, temp == NULL
                 {
