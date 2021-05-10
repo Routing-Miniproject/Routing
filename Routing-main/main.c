@@ -165,8 +165,16 @@ int main()
             }
         }
 
-        printf("\n");                                                       // Continuing the program execution
-        printf("Operation Code: ");
+    printf("\n");                                                           // Continuing the program execution
+    printf("Operation Code: ");
+    printf("0. Exit\n");                                                    // Exit from the program
+    printf("1. Find Shortest Path\n");                                      // Find Shortest Path using Dijkstra's Algorithm
+    printf("2. Add Edge\n");                                                // Add Edge to the graph (a road on the map)
+    printf("3. Delete Edge\n");                                             // Remove an Edge from the graph
+    printf("4. Print Graph\n");                                             // Display the graph/map
+    printf("5. Get Weight\n");                                              // Display the weightage(time taken) between 2 nodes
+
+    printf("\n");
         scanf("%d", &Operation);
     }
 
