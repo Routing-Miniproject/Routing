@@ -32,6 +32,10 @@ c)Time of travel:
   - Enter the time at which you begin your journey from the starting point in 24 hour format (ie hours:minutes).
 
 OUTPUT:
+  - Prints the estimated travel duration (mins).
+  - Prints the estimated arrival time (24-Hour HH:MM).
+  - Prints the quickest path along with duration of travel (mins) for each road.
+  - Prints the total distance to be travelled (km).
 
 ```
 ## 2 - Add egde
@@ -53,7 +57,7 @@ e)Traffic density:
   - Enter the traffic density of the road(number of cars per km).
   
 OUTPUT:
-- Prints "Done" once the edge has been successfully added. 
+- Prints "Done!!" once the edge has been successfully added. 
 ```
 ## 3 - Delete edge
 ```
@@ -68,7 +72,7 @@ b)Destination Vertex:
   - Enter the end point of the edge to be deleted.
   - 
 OUTPUT:
- - Prints "Done" once the edge has been successfully deleted. 
+ - Prints "Done!!" once the edge has been successfully deleted. 
 ```
 ## 4 - Print Graph 
 ```
@@ -90,6 +94,6 @@ c)Time of travel:
   - Enter the time at which you begin your journey from the starting point in 24 hour format (ie hours:minutes).
 
 OUTPUT:
-Weight of the edge(road), in other words, the time it takes to travel through the road is printed.
+Weight of the edge(road), in other words, the time(mins) it takes to travel through the road is printed.
 If the inputs are invalid, an error message is printed.
 ```
