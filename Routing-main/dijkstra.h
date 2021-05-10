@@ -12,13 +12,13 @@ struct PathNode                                                                 
     PathNode NextNode;                                                                  // Pointer to the struct 
 };
 
-#define TIME_CONSTANT_AB 5                                                                 
-#define TIME_CONSTANT_BE 2
-#define PROPORTION_AB 80
+#define TIME_CONSTANT_AB 5                                                              // Time constant   (t)
+#define TIME_CONSTANT_BE 2                      
+#define PROPORTION_AB 80                                                                // Proportion Constant  (k)
 #define PROPORTION_BE 50
-#define VEHICLE_CONS_IN 5.7
-#define VEHICLE_CONS_OUT 20.2
-#define LOAD_FACTOR_IN 8.1
+#define VEHICLE_CONS_IN 5.7                                                             // Vehicle Constant (C)
+#define VEHICLE_CONS_OUT 20.2                                                           
+#define LOAD_FACTOR_IN 8.1                                                              // Load Factor (Lf)
 #define LOAD_FACTOR_OUT 1.2
 
 int GetWeight(Graph G, Node Current, Node Destination, int time);                       // Finds the weight (time) of an edge using the given inputs
