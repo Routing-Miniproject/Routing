@@ -111,6 +111,7 @@ int main()
             if (S < G->NumVertex && S >= 0 && E < G->NumVertex && E >= 0)
             {
                 DeleteEdge(G, S, E);                                        // Calling the DeleteEdge function to delete an edge node from the graph/map
+                printf("Done!!\n");
             }
         }
         else if (Operation == 4)                                            // Print Graph
