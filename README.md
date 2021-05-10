@@ -13,7 +13,7 @@
      2. Roads (edges)
      3. Length of the road
      4. Traffic Density/Flow
-     5. Marraige Season - depicts the presence of function halls 
+     5. Number of marriage halls at each node
      6. Speed limits
 
 ### User Input Data:
@@ -41,7 +41,7 @@
 ### Graphinput Text File format:
 
 - The first line contains an integer |V| denoting the number of intersection(nodes). The ID of each intersection is between 0 and |V| - 1.
-- The next line contains |V| space seperated integers denoting the number of function halls at each node (0 in case there are none).
+- The next line contains |V| space seperated integers denoting the number of marriage halls at each node (0 in case there are none).
 - The next line contains an integer |E| denoting the number of roads(edges). 
 - The next |E| lines contains the following data for each edge:
    - The first line of each set contains 2 space seperated integers denoting the start and end vertices of the road.
