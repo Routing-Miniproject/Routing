@@ -20,13 +20,13 @@ struct HeapNode {
     int Weight;             // Stores the weight of to reach the vertex from source vertex 
 };
 
-HeapNode newMinHeapNode(Vertex To, int weight);
-int IsEmpty(MinHeap PriorityQueue);
-void SwapNode(HeapNode* a, HeapNode* b);
-MinHeap BuildHeap(int V);
-void DownHeap(MinHeap PriorityQueue, int in);
-HeapNode ExtractMin(MinHeap PriorityQueue);
-void RelaxEdge(MinHeap PriorityQueue, Vertex v, int weight);
-int isInMinHeap(MinHeap PriorityQueue, int v);
+HeapNode newMinHeapNode(Vertex To, int weight);                     // Creates a new HeapNode and returns it's pointer
+int IsEmpty(MinHeap PriorityQueue);                                 // To check if the Priority Queue is empty or not
+void SwapNode(HeapNode* a, HeapNode* b);                            // Swaps the position of two HeapNodes using their pointers during DownHeap
+MinHeap BuildHeap(int V);                                           // Builds a MinHeap of maximun capacity of V
+void DownHeap(MinHeap PriorityQueue, int in);                       // Heapify the MinHeap
+HeapNode ExtractMin(MinHeap PriorityQueue);                         // Extracts the pointer to the HeapNode with minimum key value
+void RelaxEdge(MinHeap PriorityQueue, Vertex v, int weight);        // Relaxes the edge weight if required
+int isInMinHeap(MinHeap PriorityQueue, int v);                      // Checks if the vertex is in the MinHeap or not
 
 #endif
