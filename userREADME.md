@@ -83,13 +83,13 @@ INPUT:
 The following information must be entered:
 
 a)The starting vertex:
-  - This is the starting point of any road in the graph. Enter an integer ranging from 0 to 19. 
+  - This is the starting point of any road in the graph.
 b)The destination vertex:
-  - This is the final point of that particular road. Enter an integer ranging from 0 to 19. 
+  - This is the final point of that particular road.
 c)Time of travel:
   - Enter the time at which you begin your journey from the starting point in 24 hour format (ie hours:minutes).
 
 OUTPUT:
 Weight of the edge(road), in other words, the time it takes to travel through the road is printed.
-If the inputs are invalid, then "No such road exists!!" is printed.
+If the inputs are invalid, an error message is printed.
 ```
