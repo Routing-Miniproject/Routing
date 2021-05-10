@@ -1,7 +1,10 @@
+// An Efficient Graph ADT based on adjacency linked lists
+// Used for implementing the map consisting of roads (Edges) and intersections (Vertices) 
+
 #ifndef GRAPH_GRAPH_H
 #define GRAPH_GRAPH_H
 
-#include <stdio.h>
+#include <stdio.h>                      // All header files added here
 #include <float.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -23,38 +26,39 @@ typedef struct GraphInfo *Graph;
 typedef struct NodeInfo *Node;
 typedef int Vertex;
 
-struct GraphInfo
+struct GraphInfo                            // Graph Structure  
 {
-    int NumVertex;
-    int NumEdge;
-    Node *VertexList;
+    int NumVertex;                          // Number of Vertices in the graph
+    int NumEdge;                            // Number of Edges in the graph
+    Node *VertexList;                       // Adjacency List array
 };
 
-struct NodeInfo
+struct NodeInfo                             // Graph Node 
 {
     // If node is a Vertex
-    Vertex VertexID;
-    int NumHalls;
-    int NumEdge;
-    float IncTraff;
+    Vertex VertexID;                        // Vertex ID
+    int NumHalls;                           // Number of Marriage Halls at that vertex
+    int NumEdge;                            // Number of Outgoing Edges from the vertex    
+    float IncTraff;                         // Total Incoming Traffic density at the vertex
 
     // If Node is an Edge
-    int EdgeID;
-    float traf_density;
-    float distance;
-    int SpeedLim;
+    int EdgeID;                             // Edge ID
+    float traf_density;                     // Traffic density of the road
+    float distance;                         // Length of the road
+    int SpeedLim;                           // Speed Limit of the road
 
     // Pointer to Next node
-    Node NextNode;
+    Node NextNode;                          // Pointer to the graph node, used in the adjacency linked list for a vertex
 };
 
-Node MakeNode();
-Graph CreateGraph(int NumVertex);
-void InsertEdge(Graph G, Vertex Start, Vertex End, float distance, int speed, float traf_density);
-void DeleteEdge(Graph G, Vertex u, Vertex v);
-void PrintGraph(Graph G);
+// Functions
 
-//function to generate map
-Graph getmap();
+Node MakeNode();                                                                                    // Allocate memory to the Graph Node and initialise it
+Graph CreateGraph(int NumVertex);                                                                   // Allocate memory to the Graph structure and initialise it
+void InsertEdge(Graph G, Vertex Start, Vertex End, float distance, int speed, float traf_density);  // Insert an Edge to the graph
+void DeleteEdge(Graph G, Vertex u, Vertex v);                                                       // Delete an Edge from the graph
+void PrintGraph(Graph G);                                                                           // Print Graph G in adjacency list form
+
+Graph getmap();                                                                                     // Generates map based on the dataset in graphinput.txt
 
 #endif
