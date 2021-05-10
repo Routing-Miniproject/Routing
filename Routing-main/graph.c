@@ -80,6 +80,7 @@ void DeleteEdge(Graph G, Vertex u, Vertex v)                                    
         if (temp->NextNode->VertexID == v)                                                          // The vertex v (destination vertex) is in the adjacency list of u
         {                                                                                           // Edge exists from u to v
             Node N = temp->NextNode->NextNode;                                                      // Removing the edge
+            G->VertexList[v]->IncTraff -= temp->NextNode->traf_density;
             free(temp->NextNode);                                                                   // Freeing its memory
             temp->NextNode = N;
 
