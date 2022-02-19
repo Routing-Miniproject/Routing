@@ -1,99 +1,49 @@
-# Instructions for compilation 
-## For Linux
-```
-  1. Download and extract the zip file.
-  2. Open a terminal in the folder Routing-main.
-  3. Run the command "gcc main.c dijkstra.c graph.c Heaps.c -lm".
-  4. Run the command "./a.out".
-  5. Using the operations listed below, continue with the program. 
-```
-# How to run the testcases 
+# Routing - Mini Project
 
-After compiling, a set of operations list appears which prompts you to enter an operation code of your choice. 
+## Objective
+---
+    Improving Google Map's shortest path algorithm by implementing Dijkstra Algorithm with revised weightages to take into account indeterminable events like marriage processions while travelling.
 
-On choosing an operation code:
 
-## 0 - Exit 
-```
-This operation exits the program. 
-```
-## 1 - Find the shortest path
-```
-This operation is used to find the shortest path from the start to the end vertex. 
+## Calculating weightages
+---
+### Dataset Provided:
 
-INPUT:
-The following information must be entered:
+     1. Intersections (nodes)
+     2. Roads (edges)
+     3. Length of the road
+     4. Traffic Density/Flow
+     5. Number of marriage halls at each node
+     6. Speed limits
 
-a)The starting vertex:
-  - This is the starting point of the travel from where you'd like to begin. Enter an integer ranging from 0 to 19. 
-b)The destination vertex:
-  - This is the final destination of the travel where you'd like to end. Enter an integer ranging from 0 to 19. 
-c)Time of travel:
-  - Enter the time at which you begin your journey from the starting point in 24 hour format (ie hours:minutes).
+### User Input Data:
+    To find quickest path
+     1. Start(vertex ID -integer)
+     2. Destination(vertex ID -integer)
+     3. Time(24-hour format -HH:MM)
+     
+    To find weight of an edge
+     1. Start(vertex ID -integer)
+     2. Destination(vertex ID -integer)
+     3. Time(24-hour format -HH:MM)
+     
+    To add a new edge
+     1. Start(vertex ID -integer)
+     2. Destination(vertex ID -integer)
+     3. Length of the road (km -float)
+     4. Speed limit (kmph -integer)
+     5. Traffic Density/Flow (number of cars per kilometer -float)
+     
+    To delete an edge
+     1. Start(vertex ID -integer)
+     2. Destination(vertex ID -integer)
 
-OUTPUT:
-  - Prints the estimated travel duration (mins).
-  - Prints the estimated arrival time (24-Hour HH:MM).
-  - Prints the quickest path along with duration of travel (mins) for each road.
-  - Prints the total distance to be travelled (km).
+### Graphinput Text File format:
 
-```
-## 2 - Add egde
-```
-This operation is used to add an edge to the graph. 
+- The first line contains an integer |V| denoting the number of intersection(nodes). The ID of each intersection is between 0 and |V| - 1.
+- The next line contains |V| space seperated integers denoting the number of marriage halls at each node (0 in case there are none).
+- The next line contains an integer |E| denoting the number of roads(edges). 
+- The next |E| lines contains the following data for each edge:
+   - The first line of each set contains 2 space seperated integers denoting the start and end vertices of the road.
+   - The next line contains 3 space seperated values denoting the length (in kilometers), the speed limit (in kmph) and the traffic density (number of cars per kilometer) of the given road.
 
-INPUT:
-The following information must be entered:
-
-a)Starting Vertex:
-  - Enter the starting point of the edge to be added. 
-b)Destination Vertex:
-  - Enter the end point of the edge to be added. 
-c)Distance:
-  - Enter the length of the edge/road in kilometers. 
-d)Speed limit:
-  - Enter the speed limit of the road in kmph. 
-e)Traffic density:
-  - Enter the traffic density of the road(number of cars per km).
-  
-OUTPUT:
-- Prints "Done!!" once the edge has been successfully added. 
-```
-## 3 - Delete edge
-```
-This operation is used to delete an edge from the graph. 
-
-INPUT:
-The following information must be entered:
-
-a)Starting Vertex:
-  - Enter the starting point of the edge to be deleted. 
-b)Destination Vertex:
-  - Enter the end point of the edge to be deleted.
-  - 
-OUTPUT:
- - Prints "Done!!" once the edge has been successfully deleted. 
-```
-## 4 - Print Graph 
-```
-This operation prints the graph using adjacency list implementation. 
-  For example 1->{2,3,5}, means 1 is the starting vertex and 2,3,5 are three different end vertices containing an edge starting from 1. 
-```
-## 5 - Get weight 
-```
-This operation is used to find the weight of an edge, in other words, the time(mins) it takes to travel through the road.
-
-INPUT:
-The following information must be entered:
-
-a)The starting vertex:
-  - This is the starting point of any road in the graph.
-b)The destination vertex:
-  - This is the final point of that particular road.
-c)Time of travel:
-  - Enter the time at which you begin your journey from the starting point in 24 hour format (ie hours:minutes).
-
-OUTPUT:
-Weight of the edge(road), in other words, the time(mins) it takes to travel through the road is printed.
-If the inputs are invalid, an error message is printed.
-```
